@@ -8,7 +8,7 @@ class AWSV4SignerTests(unittest.TestCase):
 
     def test_can_create_signer_with_parameters(self):
         key = 'YOUR_AWS_KEY_ID'
-        secret = 'YOUR_AWS_KEY_SECRET'
+        secret = 'YOUR_AWS_KEY_SECRET'  # nosec
         region = 'YOUR_AWS_REGION'
         service = 'YOUR_AWS_SERVICE'
         host = 'YOUR_AWS_HOST'
@@ -43,7 +43,7 @@ class AWSV4SignerTests(unittest.TestCase):
 
     def test_can_return_headers(self):
         key = 'YOUR_AWS_KEY_ID'
-        secret = 'YOUR_AWS_KEY_SECRET'
+        secret = 'YOUR_AWS_KEY_SECRET'  # nosec
         region = 'YOUR_AWS_REGION'
         service = 'YOUR_AWS_SERVICE'
         host = 'YOUR_AWS_HOST'
