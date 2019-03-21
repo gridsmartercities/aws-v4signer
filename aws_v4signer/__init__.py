@@ -1,1 +1,1 @@
-from aws_v4signer import *
+from aws_v4signer import *  # noqa
