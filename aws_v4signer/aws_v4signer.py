@@ -84,13 +84,3 @@ class AWSV4Signer:
             'x-amz-date': amz_date,
             'Authorization': authorization_header
         }
-
-
-# if __name__ == '__main__':
-#
-#     print(AWSV4Signer.sign(''.encode(ENCODING), ''))
-#
-#     print(AWSV4Signer.get_signature_key('YOUR_AWS_KEY_ID',
-#                                         datetime.datetime.utcnow().strftime(DATE_STAMP_FORMAT),
-#                                         'YOUR_AWS_REGION',
-#                                         'YOUR_AWS_SERVICE'))
