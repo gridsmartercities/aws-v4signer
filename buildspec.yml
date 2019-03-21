@@ -9,5 +9,5 @@ phases:
       - export OUR_COMMIT_SHA=`git rev-parse HEAD`
       - bandit -r .
       - prospector
-      - coverage run --source='.' -m unittest
+      - coverage run --branch --source='.' -m unittest
       - coverage report -m --fail-under=100 --omit=*/__init__.py,tests/*,setup.py,examples/test_examples.py
