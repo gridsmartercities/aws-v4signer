@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 LONG_DESCRIPTION = open('README.md').read()
 
 setup(name='aws-v4signer',
-      version='0.1',
+      version='0.2',
       description='A python class to get the headers needed for v4 signing an AWS request',
       long_description=LONG_DESCRIPTION,
       long_description_content_type="text/markdown",
