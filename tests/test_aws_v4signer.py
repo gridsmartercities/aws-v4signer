@@ -32,14 +32,14 @@ class AWSV4SignerTests(unittest.TestCase):
 
     def test_can_return_signature_key(self):
         key = 'YOUR_AWS_KEY_ID'
-        date = datetime.datetime.utcnow().strftime(DATE_STAMP_FORMAT)
+        date = '20190322'
         region = 'YOUR_AWS_REGION'
         service = 'YOUR_AWS_SERVICE'
 
         signature_key = AWSV4Signer.get_signature_key(key, date, region, service)
 
-        self.assertEqual(signature_key, b'\x1f\x1e\x04\xc7\xb17\x93N\xfa\x84q\x95o\xe9\xa4u\xffDk\xeb\x92^\x03\x9d%'
-                                        b'\x8e\x95\x06GO\x1c\x1e')
+        self.assertEqual(signature_key, b'\x02\xad\x17$\x9bPV\x1f\xeed\xc9\xc9\x16wk\xfa|\xcaC\xca\x8a\x9eW\xb9\x9b'
+                                        b'\xdc2\x80h\t\x80\xcb')
 
     def test_can_return_headers(self):
         key = 'YOUR_AWS_KEY_ID'
