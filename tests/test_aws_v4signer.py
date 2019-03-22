@@ -1,7 +1,6 @@
-import datetime
 import json
 import unittest
-from aws_v4signer.aws_v4signer import AWSV4Signer, ENCODING, DATE_STAMP_FORMAT
+from aws_v4signer.aws_v4signer import AWSV4Signer, ENCODING
 
 
 class AWSV4SignerTests(unittest.TestCase):
