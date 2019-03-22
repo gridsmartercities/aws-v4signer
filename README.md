@@ -5,7 +5,7 @@
 ![Github Release](https://img.shields.io/github/release/gridsmartercities/aws-v4signer.svg?style=flat)
 \
 \
-![Python Versions](https://img.shields.io/pypi/pyversions/aws-lambda-decorators.svg?style=flat)
+![Python Versions](https://img.shields.io/pypi/pyversions/aws-v4signer.svg?style=flat)
 ![PyPi Version](https://img.shields.io/pypi/v/aws-v4signer.svg?style=flat)
 ![PyPi Status](https://img.shields.io/pypi/status/aws-v4signer.svg?style=flat)
 ![Pypi Downloads](https://img.shields.io/pypi/dm/aws-v4signer.svg?style=flat&logo=pypi)
