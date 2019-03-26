@@ -84,3 +84,9 @@ class AWSV4Signer:
             'x-amz-date': amz_date,
             'Authorization': authorization_header
         }
+
+
+def get_v4_headers(key, secret, region, service, host, uri, method, querystring, body):
+    # pylint:disable=too-many-arguments
+    v4_signer = AWSV4Signer(key, secret, region, service, host)
+    return v4_signer.get_headers(uri, method, querystring, body)

@@ -1,6 +1,6 @@
 import json
 import unittest
-from aws_v4signer.aws_v4signer import AWSV4Signer, ENCODING
+from aws_v4signer.aws_v4signer import AWSV4Signer, ENCODING, get_v4_headers
 
 
 class AWSV4SignerTests(unittest.TestCase):
@@ -56,5 +56,10 @@ class AWSV4SignerTests(unittest.TestCase):
 
         headers = v4_signer.get_headers(uri, method, querystring, body)
 
+        self.assertTrue(headers['Authorization'])
+        self.assertTrue(headers['x-amz-date'])
+
+    def test_can_use_method_to_get_headers(self):
+        headers = get_v4_headers("", "", "", "", "", "", "", "", "")
         self.assertTrue(headers['Authorization'])
         self.assertTrue(headers['x-amz-date'])
