@@ -2,13 +2,13 @@ import datetime
 import hashlib
 import hmac
 
-VERSION = 'AWS4'
-ALGORITHM = 'AWS4-HMAC-SHA256'
-SIGNED_HEADERS = 'host;x-amz-date'
-AWS4_REQUEST = 'aws4_request'
-ENCODING = 'utf-8'
-AMZ_DATE_FORMAT = '%Y%m%dT%H%M%SZ'
-DATE_STAMP_FORMAT = '%Y%m%d'
+VERSION = "AWS4"
+ALGORITHM = "AWS4-HMAC-SHA256"
+SIGNED_HEADERS = "host"x-amz-date"
+AWS4_REQUEST = "aws4_request"
+ENCODING = "utf-8"
+AMZ_DATE_FORMAT = "%Y%m%dT%H%M%SZ"
+DATE_STAMP_FORMAT = "%Y%m%d"
 
 
 class AWSV4Signer:
@@ -52,41 +52,41 @@ class AWSV4Signer:
         k_signing = AWSV4Signer.sign(k_service, AWS4_REQUEST)
         return k_signing
 
-    def get_headers(self, uri, method, querystring, body):
+    def get_headers(self, uri, method, querystring="", body=""):
         now = datetime.datetime.utcnow()
         amz_date = now.strftime(AMZ_DATE_FORMAT)
         date_stamp = now.strftime(DATE_STAMP_FORMAT)
 
-        canonical_request = method + '\n' \
-            + uri + '\n' \
-            + querystring + '\n' \
-            + 'host:' + self._host + '\n' \
-            + 'x-amz-date:' + amz_date + '\n' \
-            + '\n' \
-            + SIGNED_HEADERS + '\n' \
+        canonical_request = method + "\n" \
+            + uri + "\n" \
+            + querystring + "\n" \
+            + "host:" + self._host + "\n" \
+            + "x-amz-date:" + amz_date + "\n" \
+            + "\n" \
+            + SIGNED_HEADERS + "\n" \
             + hashlib.sha256(body.encode(ENCODING)).hexdigest()
 
-        credential_scope = date_stamp + '/' + self._region + '/' + self._service + '/' + AWS4_REQUEST
+        credential_scope = date_stamp + "/" + self._region + "/" + self._service + "/" + AWS4_REQUEST
 
-        string_to_sign = ALGORITHM + '\n' \
-            + amz_date + '\n' \
-            + credential_scope + '\n' \
+        string_to_sign = ALGORITHM + "\n" \
+            + amz_date + "\n" \
+            + credential_scope + "\n" \
             + hashlib.sha256(canonical_request.encode(ENCODING)).hexdigest()
 
         signing_key = AWSV4Signer.get_signature_key(self._secret, date_stamp, self._region, self._service)
 
-        authorization_header = ALGORITHM + ' ' \
-            + 'Credential=' + self._key + '/' + credential_scope + ', ' \
-            + 'SignedHeaders=' + SIGNED_HEADERS + ', ' \
-            + 'Signature=' + hmac.new(signing_key, string_to_sign.encode(ENCODING), hashlib.sha256).hexdigest()
+        authorization_header = ALGORITHM + " " \
+            + "Credential=" + self._key + "/" + credential_scope + ", " \
+            + "SignedHeaders=" + SIGNED_HEADERS + ", " \
+            + "Signature=" + hmac.new(signing_key, string_to_sign.encode(ENCODING), hashlib.sha256).hexdigest()
 
         return {
-            'x-amz-date': amz_date,
-            'Authorization': authorization_header
+            "x-amz-date": amz_date,
+            "Authorization": authorization_header
         }
 
 
-def get_v4_headers(key, secret, region, service, host, uri, method, querystring, body):
+def get_v4_headers(key, secret, region, service, host, uri, method, querystring="", body=""):
     # pylint:disable=too-many-arguments
     v4_signer = AWSV4Signer(key, secret, region, service, host)
     return v4_signer.get_headers(uri, method, querystring, body)
