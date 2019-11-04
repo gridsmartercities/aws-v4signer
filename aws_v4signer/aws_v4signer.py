@@ -4,7 +4,7 @@ import hmac
 
 VERSION = "AWS4"
 ALGORITHM = "AWS4-HMAC-SHA256"
-SIGNED_HEADERS = "host"x-amz-date"
+SIGNED_HEADERS = "host;x-amz-date"
 AWS4_REQUEST = "aws4_request"
 ENCODING = "utf-8"
 AMZ_DATE_FORMAT = "%Y%m%dT%H%M%SZ"
