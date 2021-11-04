@@ -1,0 +1,61 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+websockets = "*"
+requests = "*"
+
+[dev-packages]
+pytest = "*"
+setuptools = "*"
+wheel = "*"
+twine = "*"
+tqdm = "*"
+pre-commit = "*"
+commitizen = "*"
+toml = "*"
+coverage = "*"
+bandit = "*"
+pylint_quotes = "*"
+websockets = "*"
+requests = "*"
+astroid = "*"
+dodgy = "*"
+gitdb2 = "*"
+GitPython = "*"
+isort = "*"
+lazy-object-proxy = "*"
+mccabe = "*"
+pbr = "*"
+pep8-naming = "*"
+pycodestyle = "*"
+pydocstyle = "*"
+pyflakes = "*"
+pylint = "*"
+pylint-celery = "*"
+pylint-django = "*"
+pylint-flask = "*"
+pylint-plugin-utils = "*"
+PyYAML = "*"
+requirements-detector = "*"
+setoptconf = "*"
+six = "*"
+smmap2 = "*"
+snowballstemmer = "*"
+stevedore = "*"
+toml = "*"
+wrapt = "*"
+
+
+
+
+
+[requires]
+python_version = "3.7"
+
+[scripts]
+test = "pytest"
+build = "python3 setup.py sdist bdist_wheel"
+deploy = "twine upload dist/*"
