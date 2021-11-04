@@ -4,8 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-websockets = "*"
-requests = "*"
+
 
 [dev-packages]
 pytest = "*"
@@ -19,8 +18,11 @@ toml = "*"
 coverage = "*"
 bandit = "*"
 pylint_quotes = "*"
-websockets = "*"
-requests = "*"
+pylint = "*"
+pylint-celery = "*"
+pylint-django = "*"
+pylint-flask = "*"
+pylint-plugin-utils = "*"
 astroid = "*"
 dodgy = "*"
 gitdb2 = "*"
@@ -33,11 +35,6 @@ pep8-naming = "*"
 pycodestyle = "*"
 pydocstyle = "*"
 pyflakes = "*"
-pylint = "*"
-pylint-celery = "*"
-pylint-django = "*"
-pylint-flask = "*"
-pylint-plugin-utils = "*"
 PyYAML = "*"
 requirements-detector = "*"
 setoptconf = "*"
@@ -45,7 +42,6 @@ six = "*"
 smmap2 = "*"
 snowballstemmer = "*"
 stevedore = "*"
-toml = "*"
 wrapt = "*"
 
 
