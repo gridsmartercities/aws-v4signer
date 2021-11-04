@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-LONG_DESCRIPTION = open("README.md").read()  # pylint:disable=consider-using-with,unspecified-encoding
+LONG_DESCRIPTION = open("README.md").read()  # pylint:disable=unspecified-encoding,consider-using-with
 
 setup(name="aws-v4signer",
       version="0.7",
